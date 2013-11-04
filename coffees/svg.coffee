@@ -436,13 +436,18 @@ class Svg
             .select('use')
             .attr('xlink:href', (elt) -> elt.id)
 
-        if @use
-            @element
-                .select('path')
-                .remove()
-            @element
-                .select('text')
-                .remove()
+        for elt in @use.data()
+            if elt.parent.name == "Mockup" 
+                @element
+                    .select('path')
+                    .remove()
+                @element
+                    .select('text')
+                    .remove()
+            else
+                @element
+                    .select('use')
+                    .remove()
 
         # Exit
         @element.exit()

@@ -76,6 +76,7 @@ class Mockup
 class Use extends Mockup
     constructor: ->
         super()
+        @parent = Mockup
         @text = ""
         @id = "#fallout"
 

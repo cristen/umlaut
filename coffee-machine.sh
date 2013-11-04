@@ -7,7 +7,7 @@ coffee -wcb -j umlaut.js -o javascripts/ \
     coffees/diagrams/diagram.coffee      \
     coffees/diagrams/commons.coffee      \
     coffees/diagrams/flowchart.coffee    \
-    coffees/diagrams/mockups.coffee    \
+    coffees/diagrams/mockups.coffee      \
     coffees/diagrams/usecase.coffee      \
     coffees/ui/*                         \
     coffees/svg.coffee                   \
