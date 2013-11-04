@@ -437,7 +437,7 @@ class Svg
             .attr('xlink:href', (elt) -> elt.id)
 
         for elt in @use.data()
-            if elt.parent.name == "Mockup" 
+            if elt.parent and elt.parent.name == "Mockup" 
                 @element
                     .select('path')
                     .remove()
