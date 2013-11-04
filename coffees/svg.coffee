@@ -63,6 +63,33 @@ class Svg
             .append('svg:path')
             .attr('d', 'M 0 5 L 5 0 L 10 5 L 5 10 z')
 
+        @defs
+            .append('image')
+            .attr('id', 'fallout')
+            .attr('xlink:href', "http://www.fallout-3.com/files/images/Childkiller_Unused_0.jpg")
+            .attr('x', 10)
+            .attr('y', 10)
+            .attr('width', '300px' )
+            .attr('height', '300px')
+
+        @defs
+            .append('image')
+            .attr('id', 'phone')
+            .attr('xlink:href', "assets/dessin.svg")
+            .attr('x', 10)
+            .attr('y', 10)
+            .attr('width', '121' )
+            .attr('height', '226')
+
+        @defs
+            .append('image')
+            .attr('id', 'browser')
+            .attr('xlink:href', "assets/browser.svg")
+            .attr('x', 10)
+            .attr('y', 10)
+            .attr('width', '700' )
+            .attr('height', '750')
+
         @pattern = @defs
             .append('svg:pattern')
             .attr('id', 'grid')
@@ -346,6 +373,9 @@ class Svg
         element_g
             .append('text')
 
+        element_g
+            .append('use')
+
         # Update + Enter
         @element
             .select('text')
@@ -401,6 +431,18 @@ class Svg
         @element
             .select('path.shape')
             .attr('d', (elt) -> elt.path())
+
+        @use = @element
+            .select('use')
+            .attr('xlink:href', (elt) -> elt.id)
+
+        if @use
+            @element
+                .select('path')
+                .remove()
+            @element
+                .select('text')
+                .remove()
 
         # Exit
         @element.exit()
